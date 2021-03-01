@@ -105,18 +105,18 @@
 	)	
 	
 	(defun GetNamingType ( / naming )
-		(initget "Лист Файл+Лист")
-		(setq naming (getkword (strcat "\nВыберите вариант наименования [Лист/Файл+Лист] <Лист> :")))
+		(initget "Layout File+Layout")
+		(setq naming (getkword (strcat "\nResult naming type [Layout/File+Layout] <Layout> :")))
 		
 		(if (null naming) 
-			(setq naming "Лист")
+			(setq naming "Layout")
 		)
 		naming
 	)
 	
 	(setq dwgResultFolder (getvar "DWGPREFIX"))
 	
-	(if (setq dwgResultFolder (LM:browseforfolder "Текущий чертеж будет разделен по листам.\nУкажите папку для их размещения:" nil 0))
+	(if (setq dwgResultFolder (LM:browseforfolder "The current drawing will be split into sheets.\nSpecify the folder to place them:" nil 0))
 		(progn
 			(setq namingType (GetNamingType))
 			
@@ -130,7 +130,7 @@
 			
 			(setvar "CTAB" "MODEL")
 			
-			(command "_.undo" "_M") 		; Исходное состояние чертежа (1)
+			(command "_.undo" "_M") 		; Initial drawing state (1)
 			
 			(BindAndExplodeXrefs)
 			
@@ -138,18 +138,18 @@
 			
 			(TextToForward)
 			
-			(command "_.undo" "_M") 		; Чертеж с разбитыми ссылками (2)
+			(command "_.undo" "_M") 		; Reference Exploded (2)
 			
 			(foreach lay (layoutlist)
-				(DelAllLayouts lay)			; Удалить листы кроме текущего
-				(command "_.undo" "_M") 	; Полный лист (3)
+				(DelAllLayouts lay)			
+				(command "_.undo" "_M") 	; Full sheet (3)
 				
 				(setvar "CTAB" lay)
 				
 				(setq layDwgWasCreated nil)
 				
 				(setq layDwgName 
-					(if (eq namingType "Лист")
+					(if (eq namingType "Layout")
 						(strcat dwgResultFolder "\\" lay ".dwg")
 						(strcat dwgResultFolder "\\" (vl-filename-base (getvar "DWGNAME")) "_" lay ".dwg")
 					)
@@ -179,8 +179,8 @@
 							)
 						)
 						
-						(command "_.undo" "_B") ; Вернуть до одного листа (3)
-						(command "_.undo" "_M") ; Сохранить Полный лист (3)
+						(command "_.undo" "_B") 
+						(command "_.undo" "_M") 
 					)
 					(progn 
 						;(setvar "CTAB" "MODEL")
@@ -197,18 +197,18 @@
 							)
 						)
 						
-						(command "_.undo" "_B") ; Вернуть до одного листа (3)
-						(command "_.undo" "_M") ; Сохранить Полный лист (3)
+						(command "_.undo" "_B") 
+						(command "_.undo" "_M") 
 					)
 				)
 				
-				(command "_.undo" "_B") ; Вернуть до одного листа (3)
-				(command "_.undo" "_B") ; Вернуть до разбитых ссылок (2)
-				(command "_.undo" "_M") ; Сохранить Чертеж с разбитыми ссылками (2)
+				(command "_.undo" "_B") 
+				(command "_.undo" "_B") 
+				(command "_.undo" "_M") 
 			)
 			
-			(command "_.undo" "_B") ; Вернуть до разбитых ссылок (2)
-			(command "_.undo" "_B" "_Y") ; Вернуть до исходного состояния (1)
+			(command "_.undo" "_B") 
+			(command "_.undo" "_B" "_Y") 
 			
 			(command "._undo" "_E")
 			
@@ -216,7 +216,7 @@
 			
 			(setvar "CMDECHO" oldEcho)
 			
-			(princ "Готово!\n")			
+			(princ "Finish!\n")			
 		)
 	)
 	
