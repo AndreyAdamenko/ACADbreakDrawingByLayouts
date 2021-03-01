@@ -40,4 +40,3 @@ C:\program files\autodesk\autocad 2014\support
 4. Дождитесь завершения
 
 Used materials: Lee Mac - www.lee-mac.com
-Использованы материалы : Lee Mac - www.lee-mac.com
