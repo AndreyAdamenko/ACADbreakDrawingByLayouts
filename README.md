@@ -7,10 +7,10 @@ For example, in:
 C:\program files\autodesk\autocad 2014\support
 
 Application functions:
-Injects xrefs
-Breaks blocks
-Divides the drawing by the number of sheets
-Crops the model to fit viewports (unless the viewport is on layer 0).
+* Injects xrefs
+* Breaks blocks
+* Divides the drawing by the number of sheets
+* Crops the model to fit viewports (unless the viewport is on layer 0).
 
 To run the application:
 1. Enter **KG:BreakDwg** on the command line
@@ -28,10 +28,10 @@ To run the application:
 C:\program files\autodesk\autocad 2014\support
 
 Функции приложения:
-Внедряет внешние ссылки
-Разбивает блоки
-Разделяет чертеж по количеству листов 
-Обрезает модель по видовым экранам (если видовой экран не находится в слое 0). 
+* Внедряет внешние ссылки
+* Разбивает блоки
+* Разделяет чертеж по количеству листов 
+* Обрезает модель по видовым экранам (если видовой экран не находится в слое 0). 
 
 Чтобы запустить приложение:
 1. Введите в командной строке **KG:BreakDwg**
