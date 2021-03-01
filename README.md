@@ -13,10 +13,10 @@ Divides the drawing by the number of sheets
 Crops the model to fit viewports (unless the viewport is on layer 0).
 
 To run the application:
-1.Enter **KG:BreakDwg** on the command line
-2.Specify the folder to place the split sheets
-3.Select the option for naming the files to be created (Sheet name only or Sheet name + Source drawing name)
-4.Wait for completion
+1. Enter **KG:BreakDwg** on the command line
+2. Specify the folder to place the split sheets
+3. Select the option for naming the files to be created (Sheet name only or Sheet name + Source drawing name)
+4. Wait for completion
 
 
 --------------------------------------------------------------------------------------------
@@ -34,8 +34,8 @@ C:\program files\autodesk\autocad 2014\support
 Обрезает модель по видовым экранам (если видовой экран не находится в слое 0). 
 
 Чтобы запустить приложение:
-1.Введите в командной строке **KG:BreakDwg**
-2.Укажите папку для размещения разделенных листов
-3.Выберите вариант наименования файлов которые будут созданы (Только имя листа или Имя листа + Имя исходного чертежа)
-4.Дождитесь завершения
+1. Введите в командной строке **KG:BreakDwg**
+2. Укажите папку для размещения разделенных листов
+3. Выберите вариант наименования файлов которые будут созданы (Только имя листа или Имя листа + Имя исходного чертежа)
+4. Дождитесь завершения
 
