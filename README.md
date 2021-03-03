@@ -7,7 +7,7 @@ For example, in:
 C:\program files\autodesk\autocad 2014\support
 
 Application functions:
-* Injects xrefs
+* Binds xrefs
 * Breaks blocks
 * Divides the drawing by the number of sheets
 * Crops the model to fit viewports (unless the viewport is on layer 0).
